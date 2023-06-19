@@ -36,7 +36,7 @@ namespace EventsAPI.Controllers
             }
             else
             {
-                return BadRequest("No Ticket in the database!");
+                return BadRequest("No Event in the database!");
             }
 
         }
