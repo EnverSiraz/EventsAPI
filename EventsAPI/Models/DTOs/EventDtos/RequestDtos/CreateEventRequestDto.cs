@@ -17,6 +17,7 @@ namespace EventsAPI.Models.DTOs.EventDtos.RequestDtos
 
         public DateTime EventStartTime { get; set; }
         public DateTime EventEndTime { get; set; }
+        public bool IsFree { get; set; }
 
 
         public int PlaceId { get; set; }

@@ -21,6 +21,7 @@ namespace EventsAPI.Controllers
             {
                 Id = x.Id,
                 PlaceName = x.PlaceName,
+                PlacePhotoUrl= x.PlacePhotoUrl,
                 PlaceDescription = x.PlaceDescription,
                 PlaceCity = x.PlaceCity,
                 PlaceAdress = x.PlaceAdress,
@@ -53,6 +54,7 @@ namespace EventsAPI.Controllers
                 {
                     Id = place.Id,
                     PlaceName = place.PlaceName,
+                    PlacePhotoUrl = place.PlacePhotoUrl,
                     PlaceDescription = place.PlaceDescription,
                     PlaceCity = place.PlaceCity,
                     PlaceAdress = place.PlaceAdress,
@@ -72,6 +74,7 @@ namespace EventsAPI.Controllers
                 {
                     PlaceName = request.PlaceName,
                     PlaceDescription = request.PlaceDescription,
+                    PlacePhotoUrl= request.PlacePhotoUrl,
                     PlaceCity = request.PlaceCity,
                     PlaceAdress = request.PlaceAdress,
                     PlaceMapUrl = request.PlaceMapUrl
@@ -126,6 +129,7 @@ namespace EventsAPI.Controllers
                 else
                 {
                     place.PlaceName = request.PlaceName;
+                    place.PlacePhotoUrl= request.PlacePhotoUrl;
                     place.PlaceDescription = request.PlaceDescription;
                     place.PlaceCity = request.PlaceCity;
                     place.PlaceAdress = request.PlaceAdress;
@@ -135,6 +139,7 @@ namespace EventsAPI.Controllers
                     return Ok(new UpdatePlaceResponseDto
                     {
                         PlaceName = request.PlaceName,
+                        PlacePhotoUrl = request.PlacePhotoUrl,
                         PlaceDescription = request.PlaceDescription,
                         PlaceCity = request.PlaceCity,
                         PlaceAdress = request.PlaceAdress,

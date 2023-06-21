@@ -26,7 +26,9 @@ namespace EventsAPI.Controllers
                 EventTypes = x.EventTypes,
                 EventStartTime = x.EventStartTime,
                 EventEndTime = x.EventEndTime,
-                PlaceId = x.PlaceId
+                PlaceId = x.PlaceId,
+                IsFree = x.IsFree
+                
 
             }).ToList();
 
@@ -60,8 +62,8 @@ namespace EventsAPI.Controllers
                     EventTypes = newevent.EventTypes,
                     EventStartTime = newevent.EventStartTime,
                     EventEndTime = newevent.EventEndTime,
-                    PlaceId = newevent.PlaceId
-
+                    PlaceId = newevent.PlaceId,
+                    IsFree=newevent.IsFree
                 });
             }
         }
@@ -80,7 +82,8 @@ namespace EventsAPI.Controllers
                     EventTypes = request.EventTypes,
                     EventStartTime=request.EventStartTime,
                     EventEndTime=request.EventEndTime,
-                    PlaceId = request.PlaceId
+                    PlaceId = request.PlaceId,
+                    IsFree=request.IsFree
                 };
                 context.Events.Add(event2);
                 context.SaveChanges();
@@ -137,6 +140,7 @@ namespace EventsAPI.Controllers
                     event1.EventStartTime = request.EventStartTime;
                     event1.EventEndTime = request.EventEndTime;
                     event1.PlaceId=request.PlaceId;
+                    event1.IsFree=request.IsFree;
 
                     context.SaveChanges();
                     return Ok(new UpdateEventsResponseDto
@@ -148,6 +152,7 @@ namespace EventsAPI.Controllers
                         EventStartTime = request.EventStartTime,
                         EventEndTime=request.EventEndTime,
                         PlaceId=request.PlaceId,
+                        IsFree=request.IsFree
                     });
                 }
             }

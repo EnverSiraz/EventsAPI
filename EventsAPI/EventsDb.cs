@@ -13,5 +13,7 @@ namespace EventsAPI
         public DbSet<Ticket> Tickets { get; set; }
         public DbSet<Place> Places { get; set; }
         public DbSet<Event> Events { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Purchase> Purchases { get; set; }
     }
 }

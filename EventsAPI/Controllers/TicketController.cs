@@ -21,9 +21,10 @@ namespace EventsAPI.Controllers
             {
                 Id = x.Id,
                 TicketType = x.TicketType,
-                PurchaseDate = x.PurchaseDate,
-                Contact = x.Contact,
-                EventName = x.Event.EventName
+                EventName = x.Event.EventName,
+                PurchaseId = x.PurchaseId,
+                TicketPrice = x.TicketPrice,
+                TicketQuantity  = x.TicketQuantity
 
             }).ToList();
 
@@ -52,9 +53,10 @@ namespace EventsAPI.Controllers
                 {
                     Id = ticket.Id,
                     TicketType = ticket.TicketType,
-                    PurchaseDate = ticket.PurchaseDate,
-                    Contact = ticket.Contact,
-                    EventName = ticket.Event.EventName
+                    EventName = ticket.Event.EventName,
+                    PurchaseId = ticket.PurchaseId,
+                    TicketPrice = ticket.TicketPrice,
+                    TicketQuantity = ticket.TicketQuantity
 
                 });
             }
@@ -70,9 +72,10 @@ namespace EventsAPI.Controllers
                 Ticket ticket1 = new Ticket()
                 {
                     TicketType = request.TicketType,
-                    PurchaseDate = DateTime.Now,
-                    Contact = request.Contact,
-                    EventId = request.EventId
+                    EventId = request.EventId,
+                    PurchaseId= request.PurchaseId,
+                    TicketPrice = request.TicketPrice,
+                    TicketQuantity = request.TicketQuantity
 
                 };
                 context.Tickets.Add(ticket1);
@@ -116,16 +119,19 @@ namespace EventsAPI.Controllers
             else
             {
                 ticket.TicketType = request.TicketType;
-                ticket.PurchaseDate = DateTime.Now;
-                ticket.Contact = request.Contact;
                 ticket.EventId = request.EventId;
+                ticket.TicketPrice = request.TicketPrice;
+                ticket.TicketQuantity = request.TicketQuantity;
+                ticket.PurchaseId= request.PurchaseId;
 
                 context.SaveChanges();
                 return Ok(new UpdateTicketResponseDto
                 {
                     TicketType = request.TicketType,
-                    Contact = request.Contact,
-                    EventId = request.EventId
+                    EventId = request.EventId,
+                    TicketPrice = request.TicketPrice,
+                    TicketQuantity = request.TicketQuantity,
+                    PurchaseId = request.PurchaseId
 
                 });
 

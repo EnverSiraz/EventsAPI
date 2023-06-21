@@ -4,6 +4,7 @@ using EventsAPI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EventsAPI.Migrations
 {
     [DbContext(typeof(EventsDb))]
-    partial class EventsDbModelSnapshot : ModelSnapshot
+    [Migration("20230621122655_PurchaseCustomerTablesAdded")]
+    partial class PurchaseCustomerTablesAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -64,6 +66,7 @@ namespace EventsAPI.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("EventCoverUrl")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("EventDescription")
@@ -82,9 +85,6 @@ namespace EventsAPI.Migrations
 
                     b.Property<int>("EventTypes")
                         .HasColumnType("int");
-
-                    b.Property<bool>("IsFree")
-                        .HasColumnType("bit");
 
                     b.Property<int>("PlaceId")
                         .HasColumnType("int");
@@ -121,10 +121,6 @@ namespace EventsAPI.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PlaceName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PlacePhotoUrl")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -165,17 +161,18 @@ namespace EventsAPI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<string>("Contact")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("EventId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("PurchaseDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("PurchaseId")
                         .HasColumnType("int");
-
-                    b.Property<decimal>("TicketPrice")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("TicketQuantity")
-                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("TicketType")
                         .HasColumnType("int");

@@ -17,3 +17,4 @@ namespace EventsAPI.Migrations
         }
     }
 }
+    

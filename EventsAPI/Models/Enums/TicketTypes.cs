@@ -1,4 +1,4 @@
-﻿namespace EventsAPI.Models.Enums
+﻿    namespace EventsAPI.Models.Enums
 {
     public enum TicketTypes
     {
