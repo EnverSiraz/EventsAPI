@@ -3,6 +3,11 @@
 ### Introduction
 EventsAPI is a service aims to create a database for events, places and tickets.
 
+### UpdateNotes 21 June 2023
+Purchase and Customer tables added.
+Changes in Ticket and Events tables.
+Diagram changed.
+
 ### API Endpoints
 | HTTP Verbs | Endpoints | Action |
 
@@ -36,5 +41,6 @@ EventsAPI is a service aims to create a database for events, places and tickets.
 
 | PUT | /api/ticket/update/Id | To edit the details of a single ticket |
 
+![Başlıksız Diyagram drawio (5)](https://github.com/EnverSiraz/EventsAPI/assets/130348232/172aea1c-ce46-490d-b50b-e505894c08c4)
 
-![Diagram](https://github.com/EnverSiraz/EventsAPI/assets/130348232/d0ebb025-b2f1-4e03-97ac-271e4ac73c5c)
+
