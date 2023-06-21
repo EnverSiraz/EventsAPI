@@ -9,6 +9,8 @@ Changes in Ticket and Events tables.
 Diagram changed.
 
 ### API Endpoints
+
+### EVENT Endpoints
 | HTTP Verbs | Endpoints | Action |
 
 | GET | /api/event | To retrieve all events on the platform |
@@ -21,6 +23,9 @@ Diagram changed.
 
 | PUT | /api/event/update/Id | To edit the details of a single event |
 
+### PLACE Endpoints
+| HTTP Verbs | Endpoints | Action |
+
 | GET | /api/place | To retrieve all places on the platform |
 
 | GET | /api/place/:Id | To retrieve details of a single place |
@@ -30,6 +35,9 @@ Diagram changed.
 | DELETE | /api/place/delete/:Id | To delete a single place |
 
 | PUT | /api/place/update/Id | To edit the details of a single place |
+
+### TICKET Endpoints
+| HTTP Verbs | Endpoints | Action |
 
 | GET | /api/ticket | To retrieve all tickets on the platform |
 
