@@ -4,6 +4,7 @@ using EventsAPI.Models.DTOs.PlaceDtos.RequestDtos;
 using EventsAPI.Models.DTOs.PlaceDtos.ResponseDtos;
 using EventsAPI.Models.ORMs;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace EventsAPI.Controllers
 {
@@ -17,7 +18,7 @@ namespace EventsAPI.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            List<GetAllEventsResponseDto> result = context.Events.Select(x => new GetAllEventsResponseDto()
+            List<GetAllEventsResponseDto> result = context.Events.Include(x => x.Place).Select(x => new GetAllEventsResponseDto()
             {
                 Id = x.Id,
                 EventName = x.EventName,
@@ -27,12 +28,13 @@ namespace EventsAPI.Controllers
                 EventStartTime = x.EventStartTime,
                 EventEndTime = x.EventEndTime,
                 PlaceId = x.PlaceId,
-                IsFree = x.IsFree
+                IsFree = x.IsFree,
+                PlaceName=x.Place.PlaceName
                 
 
             }).ToList();
 
-            if (result.Count > 0)
+            if (result.Count > 0)   
             {
                 return Ok(result);
             }
@@ -46,7 +48,7 @@ namespace EventsAPI.Controllers
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
-            Event newevent = context.Events.FirstOrDefault(x => x.Id == id);
+            Event newevent = context.Events.Include(x => x.Place).FirstOrDefault(x => x.Id == id);
             if (newevent == null)
             {
                 return BadRequest("There is no Event in database with id:" + id);
@@ -63,7 +65,8 @@ namespace EventsAPI.Controllers
                     EventStartTime = newevent.EventStartTime,
                     EventEndTime = newevent.EventEndTime,
                     PlaceId = newevent.PlaceId,
-                    IsFree=newevent.IsFree
+                    IsFree=newevent.IsFree,
+                    PlaceName= newevent.Place.PlaceName
                 });
             }
         }
