@@ -66,7 +66,7 @@ namespace EventsAPI.Controllers
                     EventEndTime = newevent.EventEndTime,
                     PlaceId = newevent.PlaceId,
                     IsFree=newevent.IsFree,
-                    PlaceName= newevent.Place.PlaceName
+                    PlaceName= newevent.Place.PlaceName 
                 });
             }
         }
